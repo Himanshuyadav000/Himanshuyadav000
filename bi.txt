@@ -1,0 +1,101 @@
+
+Q: Cluster
+data(iris)  
+str(iris)  
+k<-3  
+ set.seed(123)  
+ iris_kmeans <- kmeans(iris[,-5],centers=k,nstart=20)  
+ iris kmeans$cluster  
+ iris kmeans$centers  
+ plot(iris[,c(1,2)],col=iris_kmeans$cluster,main="K-means clustering of iris Dataset Aman T042", 
+xlab="Sepal length", ylab="Sepal width")  
+ points(iris_kmeans$centers[,c(1,2)],col=1:k,pch=8,cex=2)  
+ legend("topright", legend=paste("Cluster", 1:k),col=1:k,pch=8) 
+
+
+
+Q: Classification algorithm
+rainfall <- c(789.8,897.69,875.96,487.89,578.98,875,895.98,784,898.78,894.7,898.78,987.87,569.89)
+rainfall.timeseries <- ts (rainfall,start = c(2021,1), frequency = 12)
+print(rainfall.timeseries)
+plot (rainfall.timeseries)
+
+
+
+Q: R-decision
+install.packages("party")
+ctree(formula, data)
+
+library(party)
+print(head(readingSkills))
+
+x <- rnorm(1000)
+hx <- hist(x, breaks=100, plot=FALSE)
+plot(hx, col=ifelse(abs(hx$breaks) < 1.669, 4, 2))
+
+
+Q: Linear regression
+x <- c(573,187,285,686,289,358,458,789,587,458,985,878)
+y <- c(52,85,98,68,78,98,45,57,89,25,41,68) 
+relation <- lm(y ~ x)
+print(relation)
+print(summary(relation))
+a <- data.frame(x = 170)
+result <- predict(relation, a)
+print(result)
+plot(x, y, col="blue", main="Height & Weight Regression",
+     cex=1.3, pch=16, xlab="Weight in kg", ylab="Height")
+abline(relation, col="red", lwd=2)
+
+
+
+
+Q: Create ETC map
+install.packages("DiagrammeR")
+
+library(DiagrammeR)
+
+grViz("
+  digraph ETC_Map {
+  
+    # Define node styles
+    node [shape=box, style=filled, fillcolor=lightblue]
+
+    # Entities
+    Users [label='Users (user_id, name, email, password, address, phone)']
+    Products [label='Products (product_id, name, price, stock, category_id, image_url)']
+    Categories [label='Categories (category_id, category_name)']
+    Orders [label='Orders (order_id, user_id, total_price, status, date)']
+    Order_Items [label='Order_Items (order_item_id, order_id, product_id, quantity, price)']
+    Cart [label='Cart (cart_id, user_id, product_id, quantity)']
+    Payments [label='Payments (payment_id, order_id, method, status, transaction_id)']
+  
+    # Transactions
+    node [shape=ellipse, fillcolor=lightgray]
+    Registration [label='User Registration/Login']
+    BrowseProducts [label='Browse Products']
+    AddToCart [label='Add Items to Cart']
+    Checkout [label='Checkout Process']
+    PaymentProcessing [label='Payment Processing']
+    OrderManagement [label='Order Management']
+  
+    # Relationships
+    Users -> Registration
+    Users -> Orders
+    Users -> Cart
+    Orders -> Order_Items
+    Orders -> Payments
+    Order_Items -> Products
+    Cart -> Products
+    Products -> Categories
+    Payments -> Checkout
+    Checkout -> Orders
+    BrowseProducts -> Products
+    AddToCart -> Cart
+    OrderManagement -> Orders
+  }
+")
+
+
+
+
