@@ -1,0 +1,27 @@
+No:8 read data from a csv file, perform simple analysis in Google Colab.
+     titanic = pd.read_csv('https://github.com/YBIFoundation/Dataset/raw/main/Titanic.csv')
+---------# Google Cobal #-----------------------
+> import pandas as pd
+> titanic=pd.read_csv('//Titanic.csv')
+> titanic.head()
+> titanic.tail()
+> titanic.info()
+> titanic.describe()
+> titanic.describe(include='all')
+> titanic.shape
+> titanic.column
+> titanic.index
+> titanic['sex']
+> titanic['sex'].shape
+> titanic['sex'].unique()
+> titanic['sex'].nunique()
+
+> titanic['age']
+> titanic['sex'].shape
+> titanic['age'].unique()
+> titanic['sex'].nunique()
+
+> titanic.isna().sum()
+> titanic.isnull().sum()
+> titanic.values
+> titanic.sex.values
